@@ -1,10 +1,10 @@
+from django.views import View
 from django.shortcuts import render
 
 
-def index(request):
-    tags = ['Фрукты', 'Овощи', 'Сладости']
-    return render(
-        request,
-        'articles/index.html',
-        context={'tags': tags},
-    )
+class IndexView(View):
+    def get(self, request):
+        return render(request, 'articles/index.html')
+
+    # def get(self, request, *args, **kwargs):
+    #     return HttpResponse('Hello, World!')
