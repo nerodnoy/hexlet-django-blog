@@ -3,8 +3,10 @@ from django.contrib.admin import DateFieldListFilter
 
 from .models import Article
 
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'timestamp')
+    list_display = ('name', 'created_at')
     search_fields = ['name', 'body']
-    list_filter = (('timestamp', DateFieldListFilter),)
+    list_filter = (('created_at', DateFieldListFilter),)
+
